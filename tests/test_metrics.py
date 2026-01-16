@@ -1,4 +1,3 @@
-from pkoffee import metrics
 import numpy as np
 
 def test_size_missmatch_valid():
