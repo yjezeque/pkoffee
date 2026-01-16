@@ -4,34 +4,34 @@ jobs:
   SayHello:
     runs-on: ubuntu-latest
     steps:
-      run: "echo 'Runnig tests on: ${{runner.os}}'"
+      - run: "echo 'Runnig tests on: ${{runner.os}}'"
 
   code-ckecks:
     runs-on: ubuntu-latest
 
     steps:
-      name: Checkout the code
-      uses: actions/checkout@v6
+      - name: Checkout the code
+        uses: actions/checkout@v6
 
-      name: Install pixi
-      uses: prefix-dev/setup-pixi@v0.9.3
-      with:
-        pixi-version: v0.62.2
+      - name: Install pixi
+        uses: prefix-dev/setup-pixi@v0.9.3
+        with:
+          pixi-version: v0.62.2
 
-      name: look for syntax errors
-      run: pixi run ruff check
+      - name: look for syntax errors
+        run: pixi run ruff check
 
   unit-tests:
     runs-on: ubuntu-latest
     needs: code-ckecks
 
     steps:
-      name: Checkout the code
-      uses: actions/checkout@v6
+      - name: Checkout the code
+        uses: actions/checkout@v6
 
-      name: Install pixi
-      uses: prefix-dev/setup-pixi@v0.9.3
-      with:
-        pixi-version: v0.62.2
+      - name: Install pixi
+        uses: prefix-dev/setup-pixi@v0.9.3
+        with:
+          pixi-version: v0.62.2
 
-      run: pixi run pytest
+      - run: pixi run pytest
