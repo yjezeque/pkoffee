@@ -2,6 +2,7 @@ name: A simple test workflow
 on: [push]
 jobs:
   SayHello:
+    runs-on: ubuntu-latest
     steps:
       run: "echo 'Runnig tests on: ${{runner.os}}'"
 
