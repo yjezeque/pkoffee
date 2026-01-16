@@ -4,8 +4,6 @@ jobs:
   SayHello:
     steps:
       run: "echo 'Runnig tests on: ${{runner.os}}'"
-      run: "echo 'Repo: ${{github.repository}}'"
-      run: "echo 'Branch: ${{github.ref}}'"
 
   code-ckecks:
     runs-on: ubuntu-latest
