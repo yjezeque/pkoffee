@@ -2,10 +2,10 @@ name: A simple test workflow
 on: [push]
 jobs:
   SayHello:
-      steps:
-        run: "echo 'Runnig tests on: ${{runner.os}}'"
-        run: "echo 'Repo: ${{github.repository}}'"
-        run: "echo 'Branch: ${{github.ref}}'"
+    steps:
+      run: "echo 'Runnig tests on: ${{runner.os}}'"
+      run: "echo 'Repo: ${{github.repository}}'"
+      run: "echo 'Branch: ${{github.ref}}'"
 
   code-ckecks:
     run-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
 
       name: look for syntax errors
       run: pixi run ruff check
-      
+
   unit-tests:
     runs-on: ubuntu-latest
     needs: code-ckecks
